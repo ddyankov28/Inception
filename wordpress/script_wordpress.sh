@@ -1,4 +1,6 @@
-f [ ! -f "/var/www/html/wp-config.php" ]; then
+#!/bin/bash
+
+if [ ! -f "/var/www/html/wp-config.php" ]; then
 
 	chown -R www-data:www-data /var/www/html/
 	cd /var/www/html

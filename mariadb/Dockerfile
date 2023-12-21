@@ -14,7 +14,7 @@ RUN mkdir -p /run/mysqld /var/lib/mysql
 RUN chown -R mysql:mysql /run/mysqld /var/lib/mysql
 
 # initialize the database
-RUN mysql_install_db 
+RUN mysql_install_db --user=mysql --datadir=/var/lib/mysql --auth-root-authentication-method=normal --skip-test-db
 
 # copy the conf file to the container
 COPY ./my.conf /etc/mysql/my.cnf

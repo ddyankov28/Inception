@@ -8,8 +8,8 @@ RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install -y curl mariadb-client
 
 # install specifeid for wordpress php packages and extensions
-RUN apt-get install -y php8.2 php8.2-fpm php8.2-curl php8.2-mysql \
-    php8.2-mbstring php8.2-xml php8.2-zip php8.2-gd php8.2-imap
+RUN apt-get install -y php7.4 php7.4-fpm php7.4-curl php7.4-mysql \
+    php7.4-mbstring php7.4-xml php7.4-zip php7.4-gd php7.4-imap
 
 # create directories
 RUN mkdir -p /run/php /var/www/html
@@ -24,7 +24,7 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 RUN chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp
 
 # copy conf to the container
-COPY ./www.conf /etc/php/8.2/fpm/pool.d/www.conf
+COPY ./www.conf /etc/php/7.4/fpm/pool.d/www.conf
 
 # copy the script to the container
 COPY ./script_wordpress.sh /tmp/
@@ -36,4 +36,4 @@ RUN chmod +x /tmp/script_wordpress.sh
 ENTRYPOINT [ "/tmp/script_wordpress.sh" ]
 
 #  the command will be launch after the script // stay in foreground //
-CMD ["php-fpm8.2", "-F"]
+CMD ["php-fpm7.4", "-F"]
