@@ -18,7 +18,7 @@ if [ ! -f "/var/www/html/wp-config.php" ]; then
 						--allow-root
 
 	wp core install		--url=ddyankov.42.fr \
-						--title=Inception \
+						--title=${WP_TITLE} \
 						--admin_user=${WP_ADMIN} \
 						--admin_password=${WP_ADMIN_PASS} \
 						--admin_email=${WP_ADMIN_MAIL} \
@@ -30,9 +30,9 @@ if [ ! -f "/var/www/html/wp-config.php" ]; then
 						--role=author \
 						--allow-root
 
-	wp theme install "twentytwentyfour" --activate --allow-root
+	wp theme install "miyazaki" --activate --allow-root
 
-	wp post generate --count=1 --post_author="${WP_USER}" --post_title="WELCOME TO WESTWORLD" --allow-root
+	wp post generate --count=1 --post_author="${WP_USER}" --post_title="WELCOME TO MY FIRST POST" --allow-root
 
 fi;
 
