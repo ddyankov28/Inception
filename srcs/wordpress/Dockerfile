@@ -29,6 +29,10 @@ COPY ./www.conf /etc/php/7.4/fpm/pool.d/www.conf
 # copy the script to the container
 COPY ./script_wordpress.sh /tmp/
 
+COPY ./deyan.jpeg /tmp/
+
+COPY ./softuni.jpeg /tmp/
+
 # make it executable
 RUN chmod +x /tmp/script_wordpress.sh
 
