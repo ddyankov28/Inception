@@ -50,6 +50,8 @@ if [ ! -f "/var/www/html/wp-config.php" ]; then
 	wp media import /tmp/impala.jpeg --post_id=4 --featured_image --allow-root
 	
 	wp media import /tmp/kon.jpeg --post_id=5 --featured_image --allow-root
+	
+	wp term update category 1 --name=News --allow-root
 
 fi;
 
