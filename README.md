@@ -1,3 +1,4 @@
+![](docker1.jpeg)
 ## Introduction
 
 This project is designed to enhance your understanding of system administration through the practical use of Docker. The objective is to virtualize various Docker images within a personal virtual machine.
