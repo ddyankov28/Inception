@@ -33,5 +33,3 @@ The project involves setting up a small infrastructure with different services u
 ## Security and Best Practices
 
 - Save credentials, API keys, and environment variables locally in a `.env` file, ignoring it in Git for security reasons.
-
-Feel free to reach out if you encounter any issues or need further clarification. Good luck with your project!
