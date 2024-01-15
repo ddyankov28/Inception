@@ -1,0 +1,44 @@
+docker stop $(docker ps -qa)
+	- stop all the containers (ID's as arguments)
+
+docker rm $(docker ps -qa) 
+	- delete all the containers (ID's as arguments)
+
+docker rmi -f $(docker images -qa) 
+	- forcelly delete all images
+
+docker volume rm $(docker volume ls -q)
+	- delete all Docker volumes on the system
+
+docker network rm $(docker network ls -q) 2> /dev/null
+	- delete docker networks and redirect stderr to avoid displaying error msg
+
+--link option 
+	- was used to allow the containers to communicate with another, but now user defined networx
+	  are used to connect them
+
+networ: host 
+	- would indicate that the services are configured to use the host network mode
+
+tail -f
+	- used to inspect log files within a running container, -f specifies which file to follow
+
+NGINX
+	- web server;
+	- handles HTTP request from web browsers;
+	- high performance and low resource usage;
+
+HTTP/HTTPS (Hypertext Transfer Protocol / Secure)
+	- used for transferring data over the internet.
+	- HTTP  - the data is not encrypted. Easy to leak information
+	- HTTPS - incorporates SSL / TLS (Secure Sockets Layer/ Transport Layer Security) to
+		  encrypt data during transmission. The SSL/TLS protocols include a process of server
+		  authentication. This means that when you connect to a website over HTTPS, the 
+		  browser verifies the authenticiity of the website's SSL certificate. This helps 
+		  ensure you are communicating with the legitimate server.
+
+OPEN SSL 
+	- a software library for applications that provide secure communications over computer
+	  networks, used from servers and most HTTPS websites.
+	- contains open-source implementation of the SSL and TLS protocols, written in C.
+

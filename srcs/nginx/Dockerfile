@@ -22,5 +22,6 @@ COPY ./nginx.conf /etc/nginx/conf.d
 RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
     ln -sf /dev/stderr /var/log/nginx/error.log
 
-# run in the foreground so that docker logs can use them
+# run in the foreground so that docker logs can use them, not run as a daemon so that the 
+# container remains active and manageable while running
 CMD [ "nginx", "-g", "daemon off;" ]

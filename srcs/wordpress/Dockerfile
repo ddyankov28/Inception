@@ -44,4 +44,9 @@ RUN chmod +x /tmp/script_wordpress.sh
 ENTRYPOINT [ "/tmp/script_wordpress.sh" ]
 
 #  the command will be launch after the script // stay in foreground //
+# FastCGI Process Manager
+# 1. Concurency and Performance
+# 2. Seperation of Concerns
+# 3.Integration with WebServers
+# 4. Containerized Environment
 CMD ["php-fpm7.4", "-F"]

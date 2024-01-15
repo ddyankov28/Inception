@@ -6,13 +6,13 @@
 #    By: ddyankov <ddyankov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/15 14:37:48 by ddyankov          #+#    #+#              #
-#    Updated: 2023/12/22 12:30:49 by ddyankov         ###   ########.fr        #
+#    Updated: 2024/01/12 12:48:59 by ddyankov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-RED = \033[0;31m
-GREEN = \033[0;32m
-BLUE = \033[1;34m   
+RED = \033[1;31m
+GREEN = \033[1;32m
+BLUE = \033[1;36m   
 END = \033[0m
 
 all:
@@ -25,7 +25,28 @@ all:
 	@mkdir -p /home/$(USER)/data/mdb_vol
 	@echo "$(GREEN)Creating WP Volume$(END)"
 	@mkdir -p /home/$(USER)/data/wp_vol
+	@echo "$(GREEN)Building the containers$(END)"
 	@docker-compose -f srcs/docker-compose.yaml up --build -d
+
+show:
+	@echo "$(BLUE)These are the containers$(END)"
+	@docker-compose -f srcs/docker-compose.yaml ps
+	
+restart:
+	@echo "$(GREEN)Restarting the services$(END)"
+	@docker-compose -f srcs/docker-compose.yaml restart
+
+go_wordpress:
+	@echo "$(GREEN)Logging into the wordpress container$(END)"
+	@docker exec -it wordpress bash
+
+go_nginx:
+	@echo "$(GREEN)Logging into the NGINX container$(END)"
+	@docker exec -it nginx bash
+	
+go_mariadb:
+	@echo "$(GREEN)Logging into the MariaDB container$(END)"
+	@docker exec -it mariadb bash
 
 fclean:
 	@docker-compose -f srcs/docker-compose.yaml down
