@@ -2,7 +2,7 @@
 FROM debian:bullseye
 
 # update and upgrade the packages
-RUN apt-get update -y && apt-get upgrade -y && apt-get install -y nginx openssl
+RUN apt-get update -y && apt-get upgrade -y && apt-get install -y nginx openssl iputils-ping
 
 # create a dir for the certficates
 RUN mkdir -p /etc/nginx/certs

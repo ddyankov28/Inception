@@ -42,3 +42,34 @@ OPEN SSL
 	  networks, used from servers and most HTTPS websites.
 	- contains open-source implementation of the SSL and TLS protocols, written in C.
 
+
+MARIA_DB
+	- mysql -u "user" -p
+	- SHOW DATABASES;
+	- USE "database_name";
+	- SHOW TABLES;
+	- SELECT * FROM "table";
+
+WP_CLI
+	- wp comment
+		-- approve
+		-- create
+		-- delete
+		-- exists
+		-- generate
+		-- list
+		-- status
+	- wp config (generates and reads the wp- config.php file)
+		-- create
+	- wp core (download,install,manage WP installation)
+		-- check-update
+		-- download
+		-- install
+	- wp media (imports files and others)
+		-- import
+
+
+wp menu create my_menu
+wp menu list
+wp menu location list
+wp menu location assign my_menu sidebar

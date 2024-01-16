@@ -5,7 +5,7 @@ FROM debian:bullseye
 RUN apt-get update -y && apt-get upgrade -y
 
 # install curl and mdb client
-RUN apt-get install -y curl mariadb-client
+RUN apt-get install -y curl mariadb-client iputils-ping
 
 # install specifeid for wordpress php packages and extensions
 RUN apt-get install -y php7.4 php7.4-fpm php7.4-curl php7.4-mysql \
@@ -14,7 +14,7 @@ RUN apt-get install -y php7.4 php7.4-fpm php7.4-curl php7.4-mysql \
 # create directories
 RUN mkdir -p /run/php /var/www/html
 
-# change ownership to the www-data user 
+# change ownership to the www-data user // the web server // 
 RUN chown -R www-data:www-data /var/www/html
 
 # download WP-client
@@ -47,6 +47,6 @@ ENTRYPOINT [ "/tmp/script_wordpress.sh" ]
 # FastCGI Process Manager
 # 1. Concurency and Performance
 # 2. Seperation of Concerns
-# 3.Integration with WebServers
+# 3. Integration with WebServers
 # 4. Containerized Environment
 CMD ["php-fpm7.4", "-F"]

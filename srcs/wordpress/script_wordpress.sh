@@ -53,6 +53,22 @@ if [ ! -f "/var/www/html/wp-config.php" ]; then
 	
 	wp term update category 1 --name=News --allow-root
 
+	wp menu create my_menu --allow-root
+
+	wp menu location assign my_menu socials --allow-root
+
+	wp menu item add-custom my_menu Deyan https://en.fccska.com/profile/deyan-dyankov --allow-root
+
+	wp menu item add-custom my_menu LinkedIn https://at.linkedin.com/in/ddyankov23 --allow-root
+
+	wp menu item add-custom my_menu GitHub https://github.com/ddyankov28/ --allow-root
+
+	wp menu item add-custom my_menu Instagram https://www.instagram.com/deyandyankov23/ --allow-root
+
+	wp menu item add-custom my_menu Facebook https://www.facebook.com/ymcmmb/ --allow-root
+
+	wp menu item add-custom my_menu Twitter https://twitter.com/ddyankov23 --allow-root
+
 fi;
 
 exec "$@"

@@ -5,7 +5,7 @@ FROM debian:bullseye
 RUN apt-get update -y && apt-get upgrade -y
 
 # install mariadb
-RUN apt-get install -y mariadb-server mariadb-client
+RUN apt-get install -y mariadb-server mariadb-client iputils-ping
 
 # create mysql dir to store runtime info for the server -p(create parent dirs if needed)
 RUN mkdir -p /run/mysqld /var/lib/mysql
@@ -29,4 +29,5 @@ RUN chmod +x /tmp/script_mariadb.sh
 ENTRYPOINT [ "/tmp/script_mariadb.sh" ]
 
 # the command will be launch after the script
+# safe has some key features that the normal doesnt have
 CMD ["mysqld_safe", "--datadir=/var/lib/mysql"]
